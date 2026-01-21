@@ -1,0 +1,142 @@
+{
+  "karyawan": [
+    {
+      "id": 1,
+      "nip": "123456789",
+      "nama": "Ahmad Supriyanto",
+      "jabatan": "Staff IT",
+      "divisi": "IT",
+      "status": "aktif"
+    },
+    {
+      "id": 2,
+      "nip": "123456790",
+      "nama": "Siti Nurhaliza",
+      "jabatan": "Manager HRD",
+      "divisi": "HRD",
+      "status": "aktif"
+    },
+    {
+      "id": 3,
+      "nip": "123456791",
+      "nama": "Budi Santoso",
+      "jabatan": "Staff Marketing",
+      "divisi": "Marketing",
+      "status": "aktif"
+    },
+    {
+      "id": 4,
+      "nip": "123456792",
+      "nama": "Dewi Anggraini",
+      "jabatan": "Staff Keuangan",
+      "divisi": "Keuangan",
+      "status": "tidak_aktif"
+    },
+    {
+      "id": 5,
+      "nip": "123456793",
+      "nama": "Rizki Pratama",
+      "jabatan": "Staff IT",
+      "divisi": "IT",
+      "status": "aktif"
+    }
+  ],
+  "jobdesk": [
+    {
+      "id": 1,
+      "nama_jobdesk": "Pembuatan Laporan Bulanan",
+      "deskripsi": "Membuat laporan bulanan sesuai template perusahaan",
+      "karyawan_id": 1,
+      "deadline": "2026-01-30",
+      "status": "selesai"
+    },
+    {
+      "id": 2,
+      "nama_jobdesk": "Maintenance Server",
+      "deskripsi": "Melakukan perawatan rutin pada server perusahaan",
+      "karyawan_id": 2,
+      "deadline": "2026-02-15",
+      "status": "proses"
+    },
+    {
+      "id": 3,
+      "nama_jobdesk": "Presentasi Klien",
+      "deskripsi": "Presentasi hasil proyek kepada klien utama",
+      "karyawan_id": 3,
+      "deadline": "2026-01-25",
+      "status": "belum"
+    },
+    {
+      "id": 4,
+      "nama_jobdesk": "Analisis Data",
+      "deskripsi": "Menganalisis data penjualan semester lalu",
+      "karyawan_id": 4,
+      "deadline": "2026-02-10",
+      "status": "belum"
+    },
+    {
+      "id": 5,
+      "nama_jobdesk": "Backup Data",
+      "deskripsi": "Melakukan backup data mingguan",
+      "karyawan_id": 5,
+      "deadline": "2026-01-20",
+      "status": "selesai"
+    },
+    {
+      "id": 6,
+      "nama_jobdesk": "Optimasi Database",
+      "deskripsi": "Melakukan optimasi performa database",
+      "karyawan_id": 1,
+      "deadline": "2026-02-28",
+      "status": "belum"
+    }
+  ],
+  "laporan": [
+    {
+      "id": 1,
+      "tanggal": "2026-01-17",
+      "karyawan_id": 1,
+      "jobdesk_id": 1,
+      "deskripsi_pekerjaan": "Membuat laporan bulanan sesuai template perusahaan. Laporan mencakup analisis data penjualan, grafik pertumbuhan, dan rekomendasi strategi untuk bulan depan.",
+      "status": "selesai"
+    },
+    {
+      "id": 2,
+      "tanggal": "2026-01-17",
+      "karyawan_id": 2,
+      "jobdesk_id": 2,
+      "deskripsi_pekerjaan": "Melakukan perawatan rutin pada server perusahaan. Termasuk pemeriksaan hardware, update software, dan monitoring performa sistem.",
+      "status": "proses"
+    },
+    {
+      "id": 3,
+      "tanggal": "2026-01-16",
+      "karyawan_id": 3,
+      "jobdesk_id": 3,
+      "deskripsi_pekerjaan": "Presentasi hasil proyek kepada klien utama. Klien menyambut baik hasil presentasi.",
+      "status": "belum"
+    },
+    {
+      "id": 4,
+      "tanggal": "2026-01-16",
+      "karyawan_id": 4,
+      "jobdesk_id": 4,
+      "deskripsi_pekerjaan": "Menganalisis data penjualan semester lalu. Menemukan tren peningkatan di kuartal ketiga.",
+      "status": "belum"
+    },
+    {
+      "id": 5,
+      "tanggal": "2026-01-15",
+      "karyawan_id": 5,
+      "jobdesk_id": 5,
+      "deskripsi_pekerjaan": "Melakukan backup data mingguan. Proses berjalan lancar tanpa kendala.",
+      "status": "selesai"
+    }
+  ],
+  "stats": {
+    "total_karyawan": 24,
+    "total_jobdesk": 42,
+    "total_laporan": 128,
+    "selesai_hari_ini": 18
+  }
+}

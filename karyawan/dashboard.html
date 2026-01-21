@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Karyawan - Laporan Jobdesk Karyawan</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .sidebar {
+            min-height: 100vh;
+            background-color: #343a40;
+            color: white;
+            padding-top: 1rem;
+        }
+        .sidebar a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            display: block;
+        }
+        .sidebar a:hover, .sidebar a.active {
+            color: white;
+            background-color: #495057;
+        }
+        .main-content {
+            padding: 2rem;
+        }
+        .card-stats {
+            border-left: 4px solid #0d6efd;
+        }
+        .card-stats.jobdesk {
+            border-left-color: #fd7e14;
+        }
+        .card-stats.laporan {
+            border-left-color: #20c997;
+        }
+        .card-stats.karyawan {
+            border-left-color: #6f42c1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <div class="text-center mb-4">
+                        <h5><i class="fas fa-tasks me-2"></i>Laporan Jobdesk</h5>
+                        <hr>
+                    </div>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="dashboard.html">
+                                <i class="fas fa-home me-2"></i>Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="jobdesk-saya.html">
+                                <i class="fas fa-clipboard-list me-2"></i>Jobdesk Saya
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="laporan-input.html">
+                                <i class="fas fa-edit me-2"></i>Input Laporan
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="riwayat-laporan.html">
+                                <i class="fas fa-history me-2"></i>Riwayat Laporan
+                            </a>
+                        </li>
+                        <li class="nav-item mt-4">
+                            <a class="nav-link text-danger" href="../index.html">
+                                <i class="fas fa-sign-out-alt me-2"></i>Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Dashboard Karyawan</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="row mb-4">
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card card-stats shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-uppercase mb-1">Jobdesk Aktif</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">5</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card card-stats shadow h-100 py-2 jobdesk">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-uppercase mb-1">Sedang Dikerjakan</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">2</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-spinner fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card card-stats shadow h-100 py-2 laporan">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-uppercase mb-1">Laporan Selesai</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">12</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-check-circle fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card card-stats shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-uppercase mb-1">Belum Selesai</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">3</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-clock fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jobdesk Terbaru -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Jobdesk Terbaru Saya</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Nama Jobdesk</th>
+                                                <th>Deskripsi</th>
+                                                <th>Deadline</th>
+                                                <th>Status</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Pembuatan Laporan Bulanan</td>
+                                                <td>Membuat laporan bulanan sesuai template perusahaan</td>
+                                                <td>2026-01-30</td>
+                                                <td><span class="badge bg-success">Selesai</span></td>
+                                                <td><button class="btn btn-sm btn-outline-primary">Lihat</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Maintenance Server</td>
+                                                <td>Melakukan perawatan rutin pada server perusahaan</td>
+                                                <td>2026-02-15</td>
+                                                <td><span class="badge bg-warning text-dark">Proses</span></td>
+                                                <td><button class="btn btn-sm btn-outline-primary">Lihat</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Backup Data</td>
+                                                <td>Melakukan backup data mingguan</td>
+                                                <td>2026-01-20</td>
+                                                <td><span class="badge bg-success">Selesai</span></td>
+                                                <td><button class="btn btn-sm btn-outline-primary">Lihat</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Optimasi Database</td>
+                                                <td>Melakukan optimasi performa database</td>
+                                                <td>2026-02-28</td>
+                                                <td><span class="badge bg-danger">Belum</span></td>
+                                                <td><button class="btn btn-sm btn-outline-primary">Lihat</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

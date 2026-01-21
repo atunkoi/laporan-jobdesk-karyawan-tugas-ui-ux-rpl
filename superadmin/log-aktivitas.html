@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Aktivitas - SuperAdmin</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .sidebar {
+            min-height: 100vh;
+            background-color: #343a40;
+            color: white;
+            padding-top: 1rem;
+        }
+        .sidebar a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            display: block;
+        }
+        .sidebar a:hover, .sidebar a.active {
+            color: white;
+            background-color: #495057;
+        }
+        .main-content {
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <div class="text-center mb-4">
+                        <h5><i class="fas fa-tasks me-2"></i>Laporan Jobdesk</h5>
+                        <hr>
+                    </div>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="dashboard.html">
+                                <i class="fas fa-home me-2"></i>Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="akun.html">
+                                <i class="fas fa-users me-2"></i>Kelola Akun
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="role.html">
+                                <i class="fas fa-user-shield me-2"></i>Pengaturan Role
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="log-aktivitas.html">
+                                <i class="fas fa-clipboard-list me-2"></i>Log Aktivitas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="karyawan.html">
+                                <i class="fas fa-user me-2"></i>Data Karyawan
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="jobdesk.html">
+                                <i class="fas fa-clipboard-list me-2"></i>Data Jobdesk
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="laporan.html">
+                                <i class="fas fa-file-alt me-2"></i>Laporan Karyawan
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="rekap.html">
+                                <i class="fas fa-chart-bar me-2"></i>Rekap Laporan
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pengaturan.html">
+                                <i class="fas fa-cog me-2"></i>Pengaturan Sistem
+                            </a>
+                        </li>
+                        <li class="nav-item mt-4">
+                            <a class="nav-link text-danger" href="../index.html">
+                                <i class="fas fa-sign-out-alt me-2"></i>Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Log Aktivitas Sistem</h1>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="filter-date" class="form-label">Tanggal</label>
+                        <input type="date" class="form-control" id="filter-date">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="filter-user" class="form-label">Pengguna</label>
+                        <select class="form-select" id="filter-user">
+                            <option value="">Semua Pengguna</option>
+                            <option>superadmin</option>
+                            <option>admin</option>
+                            <option>johndoe</option>
+                            <option>janesmith</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="filter-action" class="form-label">Aksi</label>
+                        <select class="form-select" id="filter-action">
+                            <option value="">Semua Aksi</option>
+                            <option>Login</option>
+                            <option>Logout</option>
+                            <option>Tambah Akun</option>
+                            <option>Edit Akun</option>
+                            <option>Hapus Akun</option>
+                            <option>Ubah Role</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 d-flex align-items-end">
+                        <button class="btn btn-primary me-2">Filter</button>
+                        <button class="btn btn-outline-secondary">Reset</button>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Tanggal & Waktu</th>
+                                <th>Pengguna</th>
+                                <th>Role</th>
+                                <th>Aksi</th>
+                                <th>Deskripsi</th>
+                                <th>IP Address</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2026-01-21 10:30:15</td>
+                                <td>superadmin</td>
+                                <td>SuperAdmin</td>
+                                <td>Login</td>
+                                <td>Melakukan login ke sistem</td>
+                                <td>192.168.1.100</td>
+                            </tr>
+                            <tr>
+                                <td>2026-01-21 10:25:42</td>
+                                <td>admin</td>
+                                <td>Admin</td>
+                                <td>Tambah Karyawan</td>
+                                <td>Menambahkan karyawan baru: Michael Johnson</td>
+                                <td>192.168.1.101</td>
+                            </tr>
+                            <tr>
+                                <td>2026-01-21 09:45:22</td>
+                                <td>johndoe</td>
+                                <td>Karyawan</td>
+                                <td>Input Laporan</td>
+                                <td>Mengisi laporan harian untuk jobdesk: Laporan Bulanan</td>
+                                <td>192.168.1.102</td>
+                            </tr>
+                            <tr>
+                                <td>2026-01-21 08:15:30</td>
+                                <td>superadmin</td>
+                                <td>SuperAdmin</td>
+                                <td>Ubah Role</td>
+                                <td>Mengubah role janesmith dari Karyawan ke Admin</td>
+                                <td>192.168.1.100</td>
+                            </tr>
+                            <tr>
+                                <td>2026-01-20 17:20:05</td>
+                                <td>admin</td>
+                                <td>Admin</td>
+                                <td>Tambah Jobdesk</td>
+                                <td>Menambahkan jobdesk baru: Presentasi Q4</td>
+                                <td>192.168.1.101</td>
+                            </tr>
+                            <tr>
+                                <td>2026-01-20 16:45:18</td>
+                                <td>superadmin</td>
+                                <td>SuperAdmin</td>
+                                <td>Tambah Akun</td>
+                                <td>Membuat akun baru: robertbrown (Admin)</td>
+                                <td>192.168.1.100</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <nav aria-label="Log pagination">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

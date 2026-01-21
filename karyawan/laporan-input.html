@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Laporan - Laporan Jobdesk Karyawan</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .sidebar {
+            min-height: 100vh;
+            background-color: #343a40;
+            color: white;
+            padding-top: 1rem;
+        }
+        .sidebar a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            display: block;
+        }
+        .sidebar a:hover, .sidebar a.active {
+            color: white;
+            background-color: #495057;
+        }
+        .main-content {
+            padding: 2rem;
+        }
+        .form-card {
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <div class="text-center mb-4">
+                        <h5><i class="fas fa-tasks me-2"></i>Laporan Jobdesk</h5>
+                        <hr>
+                    </div>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="dashboard.html">
+                                <i class="fas fa-home me-2"></i>Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="jobdesk-saya.html">
+                                <i class="fas fa-clipboard-list me-2"></i>Jobdesk Saya
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="laporan-input.html">
+                                <i class="fas fa-edit me-2"></i>Input Laporan
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="riwayat-laporan.html">
+                                <i class="fas fa-history me-2"></i>Riwayat Laporan
+                            </a>
+                        </li>
+                        <li class="nav-item mt-4">
+                            <a class="nav-link text-danger" href="../index.html">
+                                <i class="fas fa-sign-out-alt me-2"></i>Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Input Laporan Pekerjaan</h1>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card form-card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0"><i class="fas fa-file-alt me-2"></i>Form Laporan Pekerjaan</h5>
+                            </div>
+                            <div class="card-body">
+                                <form id="reportForm">
+                                    <div class="mb-3">
+                                        <label for="tanggal" class="form-label">Tanggal</label>
+                                        <input type="date" class="form-control" id="tanggal" required>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="jobdesk" class="form-label">Jobdesk</label>
+                                        <select class="form-select" id="jobdesk" required>
+                                            <option value="">Pilih Jobdesk</option>
+                                            <option value="1">Pembuatan Laporan Bulanan</option>
+                                            <option value="2">Maintenance Server</option>
+                                            <option value="3">Presentasi Klien</option>
+                                            <option value="4">Analisis Data</option>
+                                            <option value="5">Backup Data</option>
+                                            <option value="6">Optimasi Database</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="deskripsi" class="form-label">Deskripsi Pekerjaan</label>
+                                        <textarea class="form-control" id="deskripsi" rows="4" placeholder="Jelaskan apa yang telah Anda kerjakan..." required></textarea>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="status" class="form-label">Status Pekerjaan</label>
+                                        <select class="form-select" id="status" required>
+                                            <option value="">Pilih Status</option>
+                                            <option value="belum">Belum Dikerjakan</option>
+                                            <option value="proses">Sedang Dikerjakan</option>
+                                            <option value="selesai">Selesai</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                        <button type="reset" class="btn btn-secondary me-md-2">Reset</button>
+                                        <button type="submit" class="btn btn-primary">Kirim Laporan</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <!-- Preview Section -->
+                        <div class="card form-card mt-4">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0"><i class="fas fa-eye me-2"></i>Preview Laporan</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="previewContent">
+                                    <p class="text-muted">Laporan akan ditampilkan di sini setelah Anda mengisi formulir...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Set tanggal hari ini secara otomatis
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('tanggal').value = today;
+
+        // Fungsi preview laporan
+        document.getElementById('reportForm').addEventListener('input', function() {
+            const tanggal = document.getElementById('tanggal').value;
+            const jobdesk = document.getElementById('jobdesk').selectedOptions[0]?.text || '';
+            const deskripsi = document.getElementById('deskripsi').value;
+            const status = document.getElementById('status').selectedOptions[0]?.text || '';
+
+            const previewContent = document.getElementById('previewContent');
+            
+            if(tanggal || jobdesk || deskripsi || status) {
+                previewContent.innerHTML = `
+                    <h6>Preview Laporan:</h6>
+                    <table class="table table-sm">
+                        <tr><td><strong>Tanggal:</strong></td><td>${tanggal || '-'}</td></tr>
+                        <tr><td><strong>Jobdesk:</strong></td><td>${jobdesk || '-'}</td></tr>
+                        <tr><td><strong>Deskripsi:</strong></td><td>${deskripsi || '-'}</td></tr>
+                        <tr><td><strong>Status:</strong></td><td>${status || '-'}</td></tr>
+                    </table>
+                `;
+            } else {
+                previewContent.innerHTML = '<p class="text-muted">Laporan akan ditampilkan di sini setelah Anda mengisi formulir...</p>';
+            }
+        });
+
+        // Fungsi submit form
+        document.getElementById('reportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Dalam implementasi nyata, data akan dikirim ke server
+            // Untuk versi dummy, kita hanya menampilkan pesan konfirmasi
+            alert('Laporan berhasil dikirim!');
+            
+            // Reset form setelah submit
+            this.reset();
+            
+            // Set tanggal kembali ke hari ini
+            document.getElementById('tanggal').value = today;
+            
+            // Reset preview
+            document.getElementById('previewContent').innerHTML = '<p class="text-muted">Laporan akan ditampilkan di sini setelah Anda mengisi formulir...</p>';
+        });
+    </script>
+</body>
+</html>
